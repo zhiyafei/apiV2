@@ -2,8 +2,6 @@ package com.youzhi.api.services.impl;
 
 import com.youzhi.api.constvalue.ImgTypeConst;
 import com.youzhi.api.entity.Phone;
-import com.youzhi.api.repository.ImgRepository;
-import com.youzhi.api.repository.ImgTypeRepository;
 import com.youzhi.api.repository.PhoneRespository;
 import com.youzhi.api.services.PhoneServices;
 import com.youzhi.api.vo.PhoneVO;

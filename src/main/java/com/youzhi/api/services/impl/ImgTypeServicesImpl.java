@@ -1,7 +1,7 @@
 package com.youzhi.api.services.impl;
 
 import com.youzhi.api.entity.ImgType;
-import com.youzhi.api.repository.ImgTypeRepository;
+import com.youzhi.api.repository.ImgTypeRespository;
 import com.youzhi.api.services.ImgTypeServices;
 import com.youzhi.api.vo.ImgTypeVO;
 import org.springframework.beans.BeanUtils;
@@ -15,12 +15,12 @@ import java.util.List;
 public class ImgTypeServicesImpl implements ImgTypeServices{
 
     @Autowired
-    private ImgTypeRepository imgTypeRepository;
+    private ImgTypeRespository imgTypeRespository;
 
     @Override
     public String getImgTypeIdByImgType(String ImgTypeName) {
         // TODO check ImgTypeName
-        ImgType imgType = imgTypeRepository.getImgTypeByTypeNameEquals(ImgTypeName);
+        ImgType imgType = imgTypeRespository.getImgTypeByTypeNameEquals(ImgTypeName);
         if(imgType.getTypeId() != null || imgType.getTypeId() != null){
             return imgType.getTypeId();
         }else{
@@ -34,7 +34,7 @@ public class ImgTypeServicesImpl implements ImgTypeServices{
         ImgTypeVO imgTypeVO = new ImgTypeVO(typeName);
         ImgType imgType = new ImgType();
         BeanUtils.copyProperties(imgTypeVO,imgType);
-        return imgTypeRepository.save(imgType);
+        return imgTypeRespository.save(imgType);
     }
 
     @Override
@@ -46,6 +46,6 @@ public class ImgTypeServicesImpl implements ImgTypeServices{
             BeanUtils.copyProperties(imgTypeVO,imgType);
             list.add(imgType);
         }
-        return imgTypeRepository.save(list);
+        return imgTypeRespository.save(list);
     }
 }
